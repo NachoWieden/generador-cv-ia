@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Generador de CV Gratis con IA | Crea tu Currículum en Minutos</title>
+        <meta name="description" content="Crea tu CV profesional en minutos con nuestro generador de currículums impulsado por Inteligencia Artificial. Rápido, fácil y totalmente gratis." />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            /* --- Estilos Personalizados Integrados --- */
+
+            /* Centrado del contenedor con Flexbox */
+            #header .inner.header-centered {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+
+            /* Estilo del logo vertical para que se adapte */
+            #header .logo .symbol img {
+                height: auto;
+                max-width: 450px;
+                width: 90%;
+                margin: 4em auto 2.5em;
+                display: block;
+            }
+
+            /* Ajustes para móviles */
+            @media screen and (max-width: 768px) {
+                #header .logo .symbol img {
+                    width: 80%;
+                    max-width: 350px;
+                    margin: 3em auto 2em;
+                }
+            }
+            
+            @media screen and (max-width: 480px) {
+                #header .logo .symbol img {
+                    width: 90%;
+                    max-width: 300px;
+                    margin: 2em auto 1.5em;
+                }
+            }
+
+            /* Estilos para la transición de pantallas */
+            #welcome-screen, #form-screen {
+                transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+            }
+
+            /* Estilos para la Pantalla de Carga (Spinner) */
+            .loader {
+                border: 8px solid #f3f3f3; /* Light grey */
+                border-top: 8px solid #007bff; /* Blue */
+                border-radius: 50%;
+                width: 60px;
+                height: 60px;
+                animation: spin 2s linear infinite;
+                margin: 2em auto;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            /* Estilos para el formulario de Feedback */
+            #feedback-screen {
+                margin: 4em 0;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <div id="wrapper">
+
+            <header id="header">
+                <div class="inner header-centered">
+                    <a href="index.html" class="logo">
+                        <span class="symbol"><img src="images/logo_cvai_vertical.png.png" alt="CV.AI Logo" /></span>
+                    </a>
+                </div>
+            </header>
+
+            <div id="main">
+                <div class="inner">
+
+                    <section id="welcome-screen">
+                        <header style="text-align: center;">
+                            <h1>Generador de CV Gratis con IA | <span style="color: #007bff; font-weight: bold;">CV.AI</span>.</h1>
+                            <p style="max-width: 600px; margin: 1em auto 2em auto; font-size: 1.2em; line-height: 1.6;">Te ayudamos a generar un currículum profesional y atractivo en cuestión de minutos, impulsado por Inteligencia Artificial. ¡Es fácil, rápido y gratis!</p>
+                        </header>
+                        <div class="actions" style="text-align: center;">
+                            <a href="#" class="button primary large" id="start-button">Empezar a crear mi CV</a>
+                        </div>
+                    </section>
+                    
+                    <section id="form-screen" style="display: none; opacity: 0;">
+                        <header>
+                            <h2>Datos para tu CV</h2>
+                            <p>Rellena la siguiente información para que podamos generar tu documento.</p>
+                        </header>
+                        <form method="post" action="https://hook.us2.make.com/o7znktmktqgh1kk1ttxl0wp4e9aghdh5" enctype="multipart/form-data">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="nombre_completo">Nombre completo *</label>
+                                    <input type="text" name="nombre_completo" id="nombre_completo" required />
+                                </div>
+                                <div class="field half">
+                                    <label for="edad">Edad *</label>
+                                    <input type="number" name="edad" id="edad" required />
+                                </div>
+                                <div class="field half">
+                                    <label for="telefono">Número de teléfono *</label>
+                                    <input type="tel" name="telefono" id="telefono" required />
+                                </div>
+                                <div class="field">
+                                    <label for="email">Email *</label>
+                                    <input type="email" name="email" id="email" required />
+                                </div>
+                                <div class="field">
+                                    <label for="experiencia_laboral">Experiencia laboral *</label>
+                                    <textarea name="experiencia_laboral" id="experiencia_laboral" rows="4" required></textarea>
+                                </div>
+                                <div class="field">
+                                    <label for="estudios_academicos">Estudios académicos *</label>
+                                    <textarea name="estudios_academicos" id="estudios_academicos" rows="4" required></textarea>
+                                </div>
+                                <div class="field">
+                                    <label for="idiomas">Idiomas *</label>
+                                    <textarea name="idiomas" id="idiomas" rows="2" required></textarea>
+                                </div>
+                                <div class="field">
+                                    <label for="habilidades">Habilidades a destacar *</label>
+                                    <textarea name="habilidades" id="habilidades" rows="4" required></textarea>
+                                </div>
+                                <div class="field">
+                                    <label for="imagen">Selecciona una imagen de perfil *</label>
+                                    <input type="file" name="imagen" id="imagen" accept=".jpg, .png" required />
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Generar CV" class="primary" /></li>
+                            </ul>
+                        </form>
+                    </section>
+
+                    <section id="loading-screen" style="display: none; text-align: center; opacity: 0;">
+                        <h2>Generando tu CV...</h2>
+                        <p>Estamos usando Inteligencia Artificial para crear tu currículum perfecto. Por favor, espera unos segundos.</p>
+                        <div class="loader"></div>
+                    </section>
+
+                    <section id="download-screen" style="display: none; text-align: center; opacity: 0;">
+                        <h2>¡Tu CV está listo! 🎉</h2>
+                        <p>Haz clic en el botón de abajo para descargarlo.</p>
+                        <a href="#" class="button primary large" id="download-button" download>Descargar CV</a>
+                    </section>
+
+                    <section id="feedback-screen" class="main-content">
+                        <header style="text-align: center;"> 
+                            <h2>Ayúdanos a Mejorar el Generador de CV</h2>
+                            <p>Tu opinión es importante para nosotros. ¡Ayúdanos a mejorar!</p>
+                        </header>
+                        <form id="feedback-form" method="post" action="URL_DE_TU_WEBHOOK_DE_FEEDBACK">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="feedback_nombre">Nombre (Opcional)</label>
+                                    <input type="text" name="nombre" id="feedback_nombre" />
+                                </div>
+                                <div class="field">
+                                    <label for="feedback_email">Email (Opcional)</label>
+                                    <input type="email" name="email" id="feedback_email" />
+                                </div>
+                                <div class="field">
+                                    <label for="feedback_mensaje">Tu mensaje</label>
+                                    <textarea name="mensaje" id="feedback_mensaje" rows="6" required></textarea>
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Enviar comentario" class="primary" /></li>
+                            </ul>
+                        </form>
+                    </section>
+                </div>
+            </div>
+
+            <footer id="footer">
+                <div class="inner">
+                    <section>
+                        <h2>Siguenos</h2>
+                        <ul class="icons">
+                            <li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                    </section>
+                    <ul class="copyright">
+                        <li>&copy; CV.AI. Todos los derechos reservados.</li><li>Diseño: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+            </footer>
+
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const startButton = document.getElementById('start-button');
+                const form = document.querySelector('#form-screen form');
+                const downloadButton = document.getElementById('download-button');
+
+                const welcomeScreen = document.getElementById('welcome-screen');
+                const formScreen = document.getElementById('form-screen');
+                const loadingScreen = document.getElementById('loading-screen');
+                const downloadScreen = document.getElementById('download-screen');
+                const feedbackForm = document.getElementById('feedback-form');
+
+                // Transición de la pantalla de bienvenida al formulario
+                startButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    welcomeScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        welcomeScreen.style.display = 'none';
+                        formScreen.style.display = 'block';
+                        setTimeout(() => formScreen.style.opacity = '1', 50);
+                    }, 500);
+                });
+
+                // Intercepta el envío del formulario para manejar la transición
+                form.addEventListener('submit', async function(event) {
+                    event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+
+                    // Transición a la pantalla de carga
+                    formScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        formScreen.style.display = 'none';
+                        loadingScreen.style.display = 'block';
+                        setTimeout(() => loadingScreen.style.opacity = '1', 50);
+                    }, 500);
+
+                    // Envío de datos a Make.com
+                    const formData = new FormData(form);
+                    const url = form.action;
+
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            body: formData,
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('La respuesta de la red no fue correcta');
+                        }
+
+                        // Make.com debe devolver un JSON con el enlace de descarga
+                        const result = await response.json();
+
+                        if (result && result.downloadLink) {
+                            // Si el enlace de descarga existe, actualizamos el botón y mostramos la pantalla de descarga
+                            downloadButton.href = result.downloadLink;
+
+                            loadingScreen.style.opacity = '0';
+                            setTimeout(() => {
+                                loadingScreen.style.display = 'none';
+                                downloadScreen.style.display = 'block';
+                                setTimeout(() => downloadScreen.style.opacity = '1', 50);
+                            }, 500);
+                        } else {
+                            console.error("No se encontró el enlace de descarga en la respuesta.");
+                            alert("Hubo un error al generar el CV. Por favor, inténtalo de nuevo.");
+                        }
+
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert("Hubo un error al conectar con el servidor. Por favor, inténtalo de nuevo.");
+                    }
+                });
+
+                // Maneja el envío del formulario de feedback
+                if (feedbackForm) {
+                    feedbackForm.addEventListener('submit', async function(event) {
+                        event.preventDefault();
+
+                        const formData = new FormData(feedbackForm);
+                        const url = feedbackForm.action;
+
+                        try {
+                            const response = await fetch(url, {
+                                method: 'POST',
+                                body: formData,
+                            });
+
+                            if (response.ok) {
+                                alert('¡Gracias por tu comentario! Lo hemos recibido correctamente.');
+                                feedbackForm.reset(); // Limpia el formulario
+                            } else {
+                                alert('Hubo un problema al enviar tu comentario. Por favor, inténtalo de nuevo.');
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                            alert('Hubo un error de conexión. Inténtalo más tarde.');
+                        }
+                    });
+                }
+            });
+        </script>
+
+    </body>
+</html>
